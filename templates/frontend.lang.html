@@ -1,0 +1,24 @@
+<div>
+    <input type="text" id="chat_input" placeholder="Ask something...">
+    <select id="language">
+        <option value="en">English</option>
+        <option value="ta">தமிழ்</option>
+        <option value="hi">हिन्दी</option>
+    </select>
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+function sendMessage() {
+    let message = document.getElementById("chat_input").value;
+    let language = document.getElementById("language").value;
+
+    fetch('/chatbot', {
+        method: 'POST',
+        body: new URLSearchParams({message, language}),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+    .then(response => response.json())
+    .then(data => alert("Bot: " + data.response));
+}
+</script>

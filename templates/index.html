@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Marketplace</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background: #28a745;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('https://source.unsplash.com/1600x600/?farm,market') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .stock-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s ease-in-out;
+        }
+        .stock-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">🌾 Farmer's Marketplace</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to Farmer's Marketplace</h1>
+        <p>Connecting Farmers & Consumers for Fresh and Affordable Produce</p>
+    </div>
+
+    <!-- Stock Listings -->
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Available Stock</h2>
+        <div class="row">
+            {% for stock in stocks %}
+            <div class="col-md-4">
+                <div class="card stock-card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ stock.product_name }}</h5>
+                        <p class="card-text">Quantity: {{ stock.quantity }}</p>
+                        <p class="card-text"><strong>Price: ${{ stock.price }}</strong></p>
+                        <button class="btn btn-success">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

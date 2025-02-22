@@ -1,0 +1,21 @@
+<form method="POST" action="/register">
+    <div class="input-group">
+        <input type="text" name="username" placeholder="Enter Username" required>
+    </div>
+    <div class="input-group">
+        <input type="email" name="email" placeholder="Enter Email" required>
+    </div>
+    <div class="input-group">
+        <input type="password" name="password" placeholder="Enter Password" required minlength="6">
+    </div>
+    <div class="input-group">
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required minlength="6">
+    </div>
+    <div class="input-group">
+        <input type="text" name="farmer_location" placeholder="Enter Your Location" required>
+    </div>
+    <div class="input-group">
+        <input type="text" name="business_type" placeholder="Are you a Farmer or a Businessman?" required>
+    </div>
+    <button type="submit" class="btn">Register</button>
+</form>
